@@ -6,6 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "webpack": "^2.2.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/soroczynskis/p.git"
