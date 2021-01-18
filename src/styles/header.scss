@@ -119,7 +119,7 @@
                         position: absolute;
                         width: 40%;
                         height: 2px;
-                        bottom: 0;
+                        bottom: 8px;
                         left: 30%;
                         background: #dfdfdf;
                         border-radius: 5px;
@@ -189,6 +189,43 @@
                     text-align: center;
                     &:hover {
                         color: #000;
+                    }
+                }
+
+                &--highlighted {
+                    padding: 0;
+                    a {
+                        border: 2px solid #efefef;
+                        border-radius: 15px;
+                        padding: 10px;
+                        margin-top: 0;
+                        position: relative;
+                        z-index: 1;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 0;
+                            bottom: 0;
+                            left: 0;
+                            background: #dfdfdf;
+                            border-radius: 5px;
+                            transform: scaleX(1);
+                            transition: .35s linear;
+                        }
+
+                        &:hover::before,
+                        &:focus::before {
+                            left: 0;
+                            height: 100%;
+                            transform: scaleX(1);
+                            animation-fill-mode: forwards;
+                            z-index: -1;
+                        }
+                    }
+                    &::before {
+                        display: none;
                     }
                 }
         
