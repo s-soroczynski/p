@@ -5,11 +5,11 @@
     .mock-logo {
         grid-column: 1 / span 4;
         z-index: 10;
-        margin: 5px 0 0 5px;
+        margin: 20px 0 0 20px;
     }    
 
     .hamburger-icon {
-        margin: 5px 10px 0 0;
+        margin: 15px 20px 0 0;
         position: relative;
         z-index: 10;
         grid-column: 20 / -1;
@@ -26,62 +26,145 @@
         }
     }
 
+  
+
     .navigation {
         display: none;
         position: absolute;
         background: #fff;
         top: 0;
         left: 0;
-        padding-top: 100px;
-        height: 100%;
-        opacity: 0.9;
+        height: auto;
         width: 100%;
-        padding: 60px 20px 20px 20px;
+        padding: 80px 20px 20px 20px;
         box-sizing: border-box;
 
         a {
-            // width: fit-content;
             text-decoration: none;
-            border-bottom: 1px solid #999;
+            display: block;
+            border-bottom: 1px solid #cdcdcd;
             margin-top: 8px;
             padding-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #666;
         }
 
         &__item {
             grid-column: 1 / -1;
             color: #000;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 600;
+            margin-bottom: 30px;
 
             &-nested {
                 display: flex;
                 color: #000;
                 flex-direction: column;
-                margin-top: 15px;
-                font-size: 26px;
+                margin-top: 30px;
+                font-size: 20px;
                 font-weight: 400;
+            }
+
+            &--desktop {
+                display: none;
+            }
+        }
+
+        @include md-to-lg {
+            &__item {
+                font-size: 36px;
+
+                &-nested {
+                    font-size: 24px;
+                }
             }
         }
 
         @include lg-to-max {
             grid-column: 7 / -1;
-            background: #ffaabb;
+            position: relative;
+            padding: 0;
+            background: transparent;
 
             &__item {
-                grid-column: span 4;
-                background: #ffaa;
-                padding: 10px;
+                position: relative;
                 text-align: right;
-        
-                &-nested {
-                    display: none;
+                grid-column: span 4;
+                padding: 10px;
+                font-size: 18px;
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                color: #222;
+                cursor: pointer;
+                transition: 0.3s;
+                
+                a {
+                    border-bottom: none;
+                }
+
+                &-list {
+                    margin-top: 30px;
+                    box-sizing: content-box;
+                    border-radius: 4px;
+                    background: #fff;
+                    box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+                    transition: .3s;
+
+                    a {
+                        text-align: left;
+                        padding-left: 10px;
+                        margin-top: 0;
+                        padding: 14px;
+                        font-size: 16px;
+                        color: #666;
+                        transition: .25s ease-in-out;
+
+                        &:hover {
+                            color: #000;
+                            background: #efefef;
+                        }
+
+                        &:first-child {
+                            padding-top: 20px;
+                        }
+
+                        &:last-child {
+                            padding-bottom: 20px;
+                            border-bottom-left-radius: 4px;
+                            border-bottom-right-radius: 4px;
+                        }
+                    }
                 }
         
-                &:hover {
-                    cursor: pointer;
+                &-nested {
+                    padding-top: 15px;
+                    display: none;
+                    width: 150%;
+                    top: 5px;
+                    right: -35px;
+                    background: transparent;
+                }
+
+                &--mobile {
+                    display: none;
+                }
+
+                &--desktop {
+                    display: flex;
+                    transition: color .3s ease-in-out;
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
         
+                &:hover {            
                     .navigation__item-nested {
-                        display: block;
+                        display: flex;
+                        position: absolute;
                     }
                 }
             }
@@ -90,5 +173,14 @@
 
     .menu-open {
         display: grid;
+    }
+
+    @include lg-to-max {
+        padding: 10px;
+        background: #fff;
+
+        .mock-logo {
+            margin: 0;
+        }
     }
 }
