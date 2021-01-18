@@ -89,20 +89,50 @@
 
             &__item {
                 position: relative;
-                text-align: right;
+                text-align: center;
                 grid-column: span 4;
                 padding: 10px;
                 font-size: 18px;
                 margin-bottom: 0;
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: center;
                 color: #222;
                 cursor: pointer;
                 transition: 0.3s;
                 
+                span {
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    width: 100%;
+                }
+
                 a {
                     border-bottom: none;
+                    color: #000;
+                }
+
+                & {
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 40%;
+                        height: 2px;
+                        bottom: 0;
+                        left: 30%;
+                        background: #dfdfdf;
+                        border-radius: 5px;
+                        transform: scaleX(1);
+                        transition: .25s linear;
+                    }
+
+                    &:hover::before,
+                    &:focus::before {
+                        left: 0;
+                        width: 100%;
+                        transform: scaleX(1);
+                    }
                 }
 
                 &-list {
@@ -142,7 +172,7 @@
                 &-nested {
                     padding-top: 15px;
                     display: none;
-                    width: 150%;
+                    width: 160%;
                     top: 5px;
                     right: -35px;
                     background: transparent;
@@ -154,8 +184,9 @@
 
                 &--desktop {
                     display: flex;
+                    justify-content: center;
                     transition: color .3s ease-in-out;
-
+                    text-align: center;
                     &:hover {
                         color: #000;
                     }
