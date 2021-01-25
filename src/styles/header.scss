@@ -1,0 +1,254 @@
+@import './mixins.scss';
+
+.header {
+
+    .mock-logo {
+        grid-column: 1 / span 4;
+        z-index: 10;
+        margin: 20px 0 0 20px;
+    }    
+
+    .hamburger-icon {
+        margin: 15px 20px 0 0;
+        position: relative;
+        z-index: 10;
+        grid-column: 20 / -1;
+
+        @include lg-to-max {
+            display: none;
+        }
+
+        div {
+            width: 35px;
+            height: 5px;
+            background-color: black;
+            margin: 6px 0 0 auto;
+        }
+    }
+
+  
+
+    .navigation {
+        display: none;
+        position: absolute;
+        background: #fff;
+        top: 0;
+        left: 0;
+        height: auto;
+        width: 100%;
+        padding: 80px 20px 20px 20px;
+        box-sizing: border-box;
+
+        a {
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #cdcdcd;
+            margin-top: 8px;
+            padding-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #666;
+        }
+
+        &__item {
+            grid-column: 1 / -1;
+            color: #000;
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 30px;
+
+            &-nested {
+                display: flex;
+                color: #000;
+                flex-direction: column;
+                margin-top: 30px;
+                font-size: 20px;
+                font-weight: 400;
+            }
+
+            &--desktop {
+                display: none;
+            }
+        }
+
+        @include md-to-lg {
+            &__item {
+                font-size: 36px;
+
+                &-nested {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        @include lg-to-max {
+            grid-column: 7 / -1;
+            position: relative;
+            padding: 0;
+            background: transparent;
+
+            &__item {
+                position: relative;
+                text-align: center;
+                grid-column: span 4;
+                padding: 10px;
+                font-size: 18px;
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #222;
+                cursor: pointer;
+                transition: 0.3s;
+                
+                span {
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    width: 100%;
+                }
+
+                a {
+                    border-bottom: none;
+                    color: #000;
+                }
+
+                & {
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 40%;
+                        height: 2px;
+                        bottom: 8px;
+                        left: 30%;
+                        background: #dfdfdf;
+                        border-radius: 5px;
+                        transform: scaleX(1);
+                        transition: .25s linear;
+                    }
+
+                    &:hover::before,
+                    &:focus::before {
+                        left: 0;
+                        width: 100%;
+                        transform: scaleX(1);
+                    }
+                }
+
+                &-list {
+                    margin-top: 30px;
+                    box-sizing: content-box;
+                    border-radius: 4px;
+                    background: #fff;
+                    box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+                    transition: .3s;
+
+                    a {
+                        text-align: left;
+                        padding-left: 10px;
+                        margin-top: 0;
+                        padding: 14px;
+                        font-size: 16px;
+                        color: #666;
+                        transition: .25s ease-in-out;
+
+                        &:hover {
+                            color: #000;
+                            background: #efefef;
+                        }
+
+                        &:first-child {
+                            padding-top: 20px;
+                        }
+
+                        &:last-child {
+                            padding-bottom: 20px;
+                            border-bottom-left-radius: 4px;
+                            border-bottom-right-radius: 4px;
+                        }
+                    }
+                }
+        
+                &-nested {
+                    padding-top: 15px;
+                    display: none;
+                    width: 160%;
+                    top: 5px;
+                    right: -35px;
+                    background: transparent;
+                }
+
+                &--mobile {
+                    display: none;
+                }
+
+                &--desktop {
+                    display: flex;
+                    justify-content: center;
+                    transition: color .3s ease-in-out;
+                    text-align: center;
+                    &:hover {
+                        color: #000;
+                    }
+                }
+
+                &--highlighted {
+                    padding: 0;
+                    a {
+                        border: 2px solid #efefef;
+                        border-radius: 15px;
+                        padding: 10px;
+                        margin-top: 0;
+                        position: relative;
+                        z-index: 1;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 0;
+                            bottom: 0;
+                            left: 0;
+                            background: #dfdfdf;
+                            border-radius: 5px;
+                            transform: scaleX(1);
+                            transition: .35s linear;
+                        }
+
+                        &:hover::before,
+                        &:focus::before {
+                            left: 0;
+                            height: 100%;
+                            transform: scaleX(1);
+                            animation-fill-mode: forwards;
+                            z-index: -1;
+                        }
+                    }
+                    &::before {
+                        display: none;
+                    }
+                }
+        
+                &:hover {            
+                    .navigation__item-nested {
+                        display: flex;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-open {
+        display: grid;
+    }
+
+    @include lg-to-max {
+        padding: 10px;
+        background: #fff;
+
+        .mock-logo {
+            margin: 0;
+        }
+    }
+}

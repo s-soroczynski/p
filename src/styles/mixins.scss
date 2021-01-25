@@ -1,0 +1,21 @@
+$sm-breakpoint: 320px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 1024px;
+
+@mixin sm-to-md {
+    @media (min-width: $sm-breakpoint) and (max-width: ($md-breakpoint - 1)) {
+        @content
+    }
+};
+
+@mixin md-to-lg {
+    @media (min-width: $md-breakpoint) and (max-width: ($lg-breakpoint - 1)) {
+        @content
+    }
+};
+
+@mixin lg-to-max {
+    @media (min-width: $lg-breakpoint) {
+        @content
+    }
+};

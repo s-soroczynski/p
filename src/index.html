@@ -8,52 +8,96 @@
     <title>Landing</title>
 </head>
 <body>
-    <header class="container margin-auto">
+    <header class="main-container margin-auto header">
         <div class="mock-logo">
             Logo
         </div>
-        <nav class="navigation container">
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+        <div id="hamburger-wrapper" class="hamburger-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="navigation-wrapper" class="navigation container menu-open">
             <div class="navigation__item">
                 <span>Terapia</span>
                 <div class="navigation__item-nested">
-                    <a>Dzieci i mlodziez</a>
-                    <a>Dorosli</a>
-                    <a>seksgrupa</a>
-                    <a>grupa aa</a>
+                    <ul class="navigation__item-list">
+                        <li>
+                            <a href="javascript:void(0)">Dzieci i mlodziez</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Dorosli</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">seksgrupa</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">grupa aa</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="navigation__item">
                 <span>Oferta</span>
                 <div class="navigation__item-nested">
-                    <a>Diagnoza i opiniowanie</a>
-                    <a>psychiatria</a>
-                    <a>fizjoterapeuta</a>
-                    <a>szkolenia</a>
+                    <ul class="navigation__item-list">
+                        <li>
+                            <a href="javascript:void(0)">Diagnoza i opiniowanie</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">psychiatria</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">fizjoterapeuta</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">szkolenia</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="navigation__item">
                 <span>Nasz zespół</span>
                 <div class="navigation__item-nested">
-                    <a>Dorota</a>
-                    <a>Maja</a>
-                    <a>Agnieszka</a>
+                    <ul class="navigation__item-list">
+                        <li>
+                            <a href="javascript:void(0)">Dorota</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Maja</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Agnieszka</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="navigation__item">
+            <div class="navigation__item navigation__item--mobile">
+                <span>Więcej</span>
+                <div class="navigation__item-nested">
+                    <ul class="navigation__item-list">
+                        <li>
+                            <a href="javascript:void(0)">Cennik</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">O centrum</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Rejestracja</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navigation__item navigation__item--desktop">
                 <a>Cennik</a>
             </div>
-            <div class="navigation__item">
+            <div class="navigation__item navigation__item--desktop">
                 <a>O centrum</a>
             </div>
-            <div class="navigation__item">
+            <div class="navigation__item navigation__item--desktop navigation__item--highlighted">
                 <a>Rejestracja</a>
             </div>
-        </nav>
+        </nav>        
     </header>
     
     <div class="hero_img">
