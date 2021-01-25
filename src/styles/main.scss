@@ -1,10 +1,16 @@
-@import "colors";
 @import "./landing.scss";
-@import "./navigation.scss";
+@import "./header.scss";
+@import "./reset.scss";
 
+
+.main-container {
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    gap: 5px;
+}
 
 .container {
-    max-width: 1024px;
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     gap: 5px;
@@ -12,8 +18,4 @@
 
 .margin-auto {
     margin: 0 auto;
-}
-
-.mock-logo {
-    grid-column: 1 / span 4;
 }
