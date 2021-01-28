@@ -17,7 +17,7 @@
             <div></div>
             <div></div>
         </div>
-        <nav id="navigation-wrapper" class="navigation container menu-open">
+        <nav id="navigation-wrapper" class="navigation container">
             <div class="navigation__item">
                 <span>Terapia</span>
                 <div class="navigation__item-nested">
@@ -83,7 +83,7 @@
                             <a href="javascript:void(0)">O centrum</a>
                         </li>
                         <li>
-                            <a href="/registration.html">Rejestracja</a>
+                            <a href="javascript:void(0)">Rejestracja</a>
                         </li>
                     </ul>
                 </div>
@@ -95,16 +95,54 @@
                 <a>O centrum</a>
             </div>
             <div class="navigation__item navigation__item--desktop navigation__item--highlighted">
-                <a href="/registration.html" hreflang="pl">Rejestracja</a>
+                <a>Rejestracja</a>
             </div>
         </nav>        
     </header>
-    
-    <div class="hero_img">
-    </div>
-    <div class="hero_text">
-        <h1>Psycholog Świdnica</h1>
-        <p>lorem ipsum lorem ipsum</p>
-    </div>
+
+    <main class="main-container margin-auto">
+        <h1 class="title">Zarejestruj się online!</h1>
+        <section class="form-section">
+            <form class="form" id="registrationFormWrapper">
+                <div class="form-container">
+                    <input type="text" placeholder="Nazwisko:" autocomplete="off" id="surname" class=" surname"/>
+                    <label for="surname">Nazwisko:</label>
+                    <p id="surname-error" class="form-error">
+                    </p>
+                </div>
+                <div class="form-container">
+                    <input type="text" placeholder="E-mail:" autocomplete="off" id="email"/>
+                    <label for="email">E-mail:</label>
+                    <p id="email-error" class="form-error">
+                    </p>
+                </div>
+                <div class="form-container">
+                    <input type="text" placeholder="Nr telefonu:" autocomplete="off" id="number"/>
+                    <label for="number">Nr telefonu:</label>
+                    <p id="number-error" class="form-error">
+                    </p>
+                </div>
+                <div class="form-container">
+                    <textarea type="textarea" placeholder="Krótki opis problemu:" autocomplete="off" id="description" ></textarea>
+                    <label for="description">Krótki opis problemu:</label>
+                    <p id="description-error" class="form-error">
+                    </p>
+                </div>
+                <div class="form-container regulations-container">
+                    <label class="regulations-label" for="regulations">
+                        <p>
+                            <span>Zapoznałem się z</span>
+                            <a href="javascript:void(0)">Regulaminem płatności</a>
+                        </p>
+                    </label>
+                    <input type="checkbox" id="regulations"/>
+                </div>
+                <p id="regulations-error" class="form-error">
+                </p>
+                <button id="submit-registration" type="submit">Wyślij</button>
+            </form>
+        </section>
+
+    </main>
 </body>
 </html>

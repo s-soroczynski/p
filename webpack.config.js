@@ -49,7 +49,19 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'fonts/'
+                    }
+                  }
+                ]
+            },
         ]
     },
     plugins: [
@@ -61,6 +73,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'users.html',
             template: 'src/users.html'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'registration.html',
+            template: 'src/registration.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'posts/index.html',
