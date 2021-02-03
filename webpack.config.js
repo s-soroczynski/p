@@ -34,10 +34,6 @@ module.exports = {
                 })
             },
             {
-                test: /\.html$/,
-                use: ['html-loader']
-            },
-            {
                 test: /\.(jpg|png)$/,
                 use: [
                     {
@@ -61,6 +57,10 @@ module.exports = {
                     }
                   }
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
             },
         ]
     },

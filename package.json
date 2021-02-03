@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/soroczynskis/p/issues"
   },
-  "homepage": "https://github.com/soroczynskis/p#readme"
+  "homepage": "https://github.com/soroczynskis/p#readme",
+  "dependencies": {
+    "handlebars-loader": "^1.7.1"
+  }
 }
