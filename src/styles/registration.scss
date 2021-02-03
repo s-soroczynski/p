@@ -1,0 +1,128 @@
+.title {
+    grid-column: 1 / -1;
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 30px;
+
+    @include md-to-lg {
+        min-width: 600px;
+        margin: 0 auto;
+    }
+
+    @include lg-to-max {
+        min-width: 800px;
+        margin: 40px auto 0 auto;
+        padding: 0;
+    }
+}
+
+.form-section {
+    grid-column: 1 / -1;
+    margin: 0 20px;
+
+    @include md-to-lg {
+        min-width: 600px;
+        margin: 0 auto;
+    }
+
+    @include lg-to-max {
+        min-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+.form {
+    &-container {
+        @include default-grid;
+        grid-column: 1 / -1;
+        margin-top: 40px;
+        position: relative;
+
+        label {
+            position: absolute;
+            top: 22px;
+            left: 12px;
+            transition: .3s ease-in-out;
+            z-index: 5;
+            font-family: Arial, Helvetica, sans-serif;
+            opacity: 0;
+            color: #999;
+        }
+
+        input, textarea {
+            grid-column: 1 / -1;
+            transition: .2s ease-out;
+            font-family: Arial, Helvetica, sans-serif;
+
+            &::placeholder {
+                transition: .3s color ease-in-out;
+            }
+
+            &:focus::placeholder {
+                color: transparent;
+            }
+
+            &:focus + label {
+                opacity: 1;
+                font-size: 16px;
+                top: -20px;
+            }
+        }
+    }
+
+    .regulations-container {
+        display: flex;
+
+        input {
+            margin: 0 0 0 20px;
+            width: 20px;
+            height: 20px;
+        }
+
+        label {
+            padding-top: 2px;
+            opacity: 1;
+            color: #000;
+            position: relative;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+
+            a {
+                text-decoration: underline;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-error {
+        grid-column: 1 / -1;
+        margin: 10px 0 0 10px;
+        font-size: 16px;
+        
+    }
+
+    .error-active {
+        color: red;
+        border-color: red;
+
+        &::placeholder {
+            color: red;
+        }
+
+        & + label {
+            color: red;
+        }
+    }
+
+    button {
+        margin-top: 30px;
+        display: grid;
+        grid-column: 1 / -1;
+        width: 200px;
+
+        &:hover {
+            background: #dedede
+        }
+    }
+}
