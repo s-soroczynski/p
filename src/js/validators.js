@@ -3,10 +3,12 @@ export const surnameValidationHelper = (value, inputNode, errorNode) => {
         errorNode.innerText = "Pole nie może być puste";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else {
         errorNode.innerText = "";
         errorNode.classList.remove('error-active');
         inputNode.classList.remove('error-active');
+        return true;
     }
 }
 
@@ -17,14 +19,17 @@ export const emailValidationHelper = (value, inputNode, errorNode) => {
         errorNode.innerText = "Pole nie może być puste";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else if (!emailRegExp.test(String(value).toLowerCase())) {
         errorNode.innerText = "Niestety email jest nie poprawny";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else {
         errorNode.innerText = "";
         errorNode.classList.remove('error-active');
         inputNode.classList.remove('error-active');
+        return true;
     }
 }
 
@@ -36,14 +41,17 @@ export const phoneNumberValidationHelper = (value, inputNode, errorNode) => {
         errorNode.innerText = "Pole nie może być puste";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else if (!phoneNumberRegExp.test(String(phoneVal).trim())) {
         errorNode.innerText = "Nie poprawny numer telefonu";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else {
         errorNode.innerText = "";
         errorNode.classList.remove('error-active');
         inputNode.classList.remove('error-active');
+        return true;
     }
 }
 
@@ -52,14 +60,17 @@ export const descriptionValidationHelper = (value, inputNode, errorNode) => {
         errorNode.innerText = "Pole nie może być puste";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else if (value.length >= 256) {
         errorNode.innerText = "Zbyt długo wiadomość";
         errorNode.classList.add('error-active');
         inputNode.classList.add('error-active');
+        return false;
     } else {
         errorNode.innerText = "";
         errorNode.classList.remove('error-active');
         inputNode.classList.remove('error-active');
+        return true;
     }
 }
 
@@ -67,16 +78,24 @@ export const checkboxValidationHelper = (value, errorNode) => {
     if (value) {
         errorNode.innerText = "";
         errorNode.classList.remove('error-active');
+        return true;
     } else {
         errorNode.innerText = "Regulamin musi być zaakceptowany";
         errorNode.classList.add('error-active');
+        return false;
     }
 }
 
 export const submitValidationHelper = (validations = []) => {
+    let status = true;
+
     validations.forEach(validator => {
+        if (!status) {
+            return status;
+        }
         if (typeof validator === 'function') {
-            validator();
+            status = validator();
         }
     });
+    return status;
 }
