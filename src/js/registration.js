@@ -35,7 +35,8 @@ import {
 
     const surnameValidation = () => {
         surname.addEventListener('input', function(e) {
-            surnameValidationHelper(e.target.value, this, inputSurnameErrorNode);
+            const status = surnameValidationHelper(e.target.value, this, inputSurnameErrorNode);
+            console.log(status, 'STATUS');
         });
     }
 
@@ -98,7 +99,28 @@ import {
                 inputRegulationsErrorNode
             ),
         ];
-        submitValidationHelper(formValidators);
+
+        const isFormValid = submitValidationHelper(formValidators);
+        if (1) {
+            const data = {
+                surname: surname.value,
+                email: email.value,
+                number: number.value,
+                description: description.value,
+                regulations: regulations.checked,
+            }
+            console.log(data, 'DATA');
+            fetch('http://localhost:3000/registration', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => console.log(res, 'RES'))
+                .catch(e => console.log(e))
+        }
     })
 
     const registerValidation = () => {
